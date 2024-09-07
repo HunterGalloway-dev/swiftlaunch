@@ -55,7 +55,7 @@ const RevenueChart = () => {
     <div className="w-full card bg-base-200 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">Revenue and Slaes</h2>
-        <ResponsiveContainer className={"w-full"} height={400}>
+        <ResponsiveContainer className={"w-full"} height={200}>
           <BarChart accessibilityLayer data={chartData}>
             <XAxis
               dataKey="month"

@@ -23,8 +23,8 @@ const SidebarLink = ({ link, label, icon: Icon }: SidebarLinkProps) => {
   return (
     <li>
       <Link href={link}>
-        <Icon />
-        {label}
+        {" "}
+        <Icon size={12} /> {label}
       </Link>
     </li>
   );
@@ -32,9 +32,9 @@ const SidebarLink = ({ link, label, icon: Icon }: SidebarLinkProps) => {
 
 const DashboardSidebar = () => {
   return (
-    <div className="flex flex-col items-center transition-all duration-200 overflow-hidden h-full w-72 pt-5 bg-base-300">
-      <h1 className="text-xl font-extrabold text-primary">SWIFT LAUNCH</h1>
-      <ul className="menu rounded-box w-56 text-base-content font-bold">
+    <div className="fixed flex flex-col items-center transition-all duration-200 h-full overflow-hidden w-0 md:w-40 bg-base-300">
+      <h1 className="text-xl font-extrabold text-primary">SWIFT</h1>
+      <ul className="menu menu-xs rounded-box w-full text-base-content">
         <SidebarLink
           link={"/dashboard"}
           label={"Dashboard"}

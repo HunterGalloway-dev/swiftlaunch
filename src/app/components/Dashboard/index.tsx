@@ -1,88 +1,53 @@
-import { ArrowDown, ArrowUp, Box, DollarSign } from "lucide-react";
+import { DollarSign } from "lucide-react";
 import React from "react";
 import RevenueChart from "../RevenueChart";
-import RevenueAreChart from "../RevenueAreaChart";
+import ProfitMarginsChart from "../ProfitMarginsChart";
+import StatCard from "../StatCard";
 
 const Dashboard = () => {
   return (
-    <div className="w-full h-full">
-      <div className="grid lg:grid-cols-2 gap-4 p-4">
-        <div className="stats shadow bg-base-200 ">
-          <div className="stat">
-            <div className="stat-figure text-primary">
-              <DollarSign />
-            </div>
-            <div className="stat-title">Revenue </div>
-            <div className="stat-value space-x-10">
-              $4,231
-              <div className="ml-2 badge badge-error bg-opacity-35 text-error">
-                <ArrowDown className="w-4" />
-                25%
-              </div>
-            </div>
-            <div className="stat-desc">21% more than last month</div>
-          </div>
-        </div>
+    <div className="w-full h-full p-3">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <StatCard
+          title="Revenue"
+          value="$4,231"
+          desc="25% more than last month"
+          percent={25}
+          icon={DollarSign}
+        />
 
-        <div className="stats shadow bg-base-200">
-          <div className="stat">
-            <div className="stat-figure text-primary">
-              <DollarSign />
-            </div>
-            <div className="stat-title">Exspense</div>
-            <div className="stat-value">
-              $2070.77
-              <div className="ml-2 badge badge-success bg-opacity-35 text-success">
-                <ArrowUp className="w-4" />
-                25%
-              </div>
-            </div>
-            <div className="stat-desc">21% more than last month</div>
-          </div>
-        </div>
+        <StatCard
+          title="Exspense"
+          value="$2,070.77"
+          desc="13% more than last month"
+          percent={13}
+          icon={DollarSign}
+        />
 
-        <div className="stats shadow bg-base-200">
-          <div className="stat">
-            <div className="stat-figure text-primary">
-              <DollarSign />
-            </div>
-            <div className="stat-title">Profit</div>
-            <div className="stat-value">
-              $2,250.23
-              <div className="ml-2 badge badge-success bg-opacity-35 text-success">
-                <ArrowUp className="w-4" />
-                25%
-              </div>
-            </div>
-            <div className="stat-desc">21% more than last month</div>
-          </div>
-        </div>
-
-        <div className="stats shadow bg-base-200">
-          <div className="stat">
-            <div className="stat-figure text-primary">
-              <Box />
-            </div>
-            <div className="stat-title">Sales</div>
-            <div className="stat-value">
-              95
-              <div className="ml-2 badge badge-success bg-opacity-35 text-success">
-                <ArrowUp className="w-4" />
-                25%
-              </div>
-            </div>
-            <div className="stat-desc">21% more than last month</div>
-          </div>
-        </div>
-        <div className="col-span-1">
-          <RevenueChart />
-        </div>
-        <div className="col-span-1">
-          <RevenueAreChart />
-        </div>
+        <StatCard
+          title="Profit"
+          value="$2,250.23"
+          desc="31% more than last month"
+          percent={31}
+          icon={DollarSign}
+        />
+        <StatCard
+          title="Sales"
+          value="95"
+          desc="34% more than last month"
+          percent={34}
+          icon={DollarSign}
+        />
       </div>
 
-      <div className="w-full"></div>
+      <div className="grid lg:grid-cols-5 gap-4 mt-4">
+        <div className=" lg:col-span-3">
+          <RevenueChart />
+        </div>
+        <div className="lg:col-span-2">
+          <ProfitMarginsChart />
+        </div>
+      </div>
     </div>
   );
 };

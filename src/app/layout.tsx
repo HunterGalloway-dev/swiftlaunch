@@ -24,10 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="cupcake">
       <body>
         <div
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-base-100`}
+          className={`${geistSans.variable} ${geistMono.variable} text-base-content antialiased bg-base-100`}
         >
           {children}
         </div>

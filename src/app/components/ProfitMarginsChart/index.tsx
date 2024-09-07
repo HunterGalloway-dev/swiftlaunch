@@ -48,12 +48,12 @@ const CustomTooltip = ({
   return null;
 };
 
-const RevenueAreChart = () => {
+const ProfitMarginsChart = () => {
   return (
     <div className="w-full card bg-base-200 shadow-xl">
       <div className="card-body">
-        <h2 className="card-title">Revenue and Slaes</h2>
-        <ResponsiveContainer className={"w-full"} height={400}>
+        <h2 className="card-title">Profit Margins</h2>
+        <ResponsiveContainer className={"w-full"} height={200}>
           <AreaChart
             accessibilityLayer
             data={chartData}
@@ -93,4 +93,4 @@ const RevenueAreChart = () => {
   );
 };
 
-export default RevenueAreChart;
+export default ProfitMarginsChart;
