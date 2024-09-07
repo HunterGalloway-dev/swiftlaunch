@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUp, Box, DollarSign } from "lucide-react";
 import React from "react";
+import RevenueChart from "../RevenueChart";
 
 const Dashboard = () => {
   return (
@@ -73,7 +74,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="w-full"></div>
+      <div className="w-full">
+        <RevenueChart />
+      </div>
     </div>
   );
 };
