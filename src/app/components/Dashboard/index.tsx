@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowUp, Box, DollarSign } from "lucide-react";
 import React from "react";
 import RevenueChart from "../RevenueChart";
+import RevenueAreChart from "../RevenueAreaChart";
 
 const Dashboard = () => {
   return (
@@ -73,10 +74,15 @@ const Dashboard = () => {
             <div className="stat-desc">21% more than last month</div>
           </div>
         </div>
+        <div className="col-span-1">
+          <RevenueChart />
+        </div>
+        <div className="col-span-1">
+          <RevenueAreChart />
+        </div>
       </div>
-      <div className="w-full">
-        <RevenueChart />
-      </div>
+
+      <div className="w-full"></div>
     </div>
   );
 };
