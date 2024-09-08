@@ -3,6 +3,7 @@ import React from "react";
 import RevenueChart from "../RevenueChart";
 import ProfitMarginsChart from "../ProfitMarginsChart";
 import StatCard from "../StatCard";
+import RecentSales from "../RecentSales";
 
 const Dashboard = () => {
   return (
@@ -40,13 +41,17 @@ const Dashboard = () => {
         />
       </div>
 
-      <div className="grid lg:grid-cols-5 gap-4 mt-4">
-        <div className=" lg:col-span-3">
+      <div className="grid md:grid-cols-4 lg:grid-cols-5 gap-4 mt-4">
+        <div className="md:col-span-2 lg:col-span-3">
           <RevenueChart />
         </div>
-        <div className="lg:col-span-2">
+        <div className="md:col-span-2 lg:col-span-2">
           <ProfitMarginsChart />
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+        <RecentSales />
       </div>
     </div>
   );
