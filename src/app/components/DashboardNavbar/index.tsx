@@ -11,25 +11,25 @@ import React from "react";
 
 const DashboardNavbar = () => {
   return (
-    <div className="navbar min-h-12 bg-base-300 p-0">
+    <div className="navbar min-h-12 bg-base-300 py-3">
       <div className="navbar-start">
-        <button className="btn btn-sm btn-square btn-ghost">
-          <AlignLeft size={14} />
+        <button className="btn btn-square btn-ghost">
+          <AlignLeft />
         </button>
       </div>
       <div className="navbar-center">
-        <label className="input input-xs input-bordered flex items-center gap-2">
+        <label className="input input-primary flex items-center gap-2">
           <input type="text" className="grow" placeholder="Search" />
           <Search />
         </label>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-sm btn-ghost btn-circle">
-          <Sun size={16} />
+        <button className="btn btn-ghost btn-circle">
+          <Sun />
         </button>
-        <button className="btn btn-sm btn-ghost btn-circle">
+        <button className="btn  btn-ghost btn-circle">
           <div className="indicator">
-            <Bell size={16} />
+            <Bell />
             <span className="badge badge-xs badge-primary indicator-item">
               3
             </span>
@@ -39,9 +39,9 @@ const DashboardNavbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-sm btn-ghost btn-circle avatar"
+            className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-6 rounded-full">
+            <div className="w-8 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"

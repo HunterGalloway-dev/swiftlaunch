@@ -24,7 +24,7 @@ const SidebarLink = ({ link, label, icon: Icon }: SidebarLinkProps) => {
     <li>
       <Link href={link}>
         {" "}
-        {Icon ? <Icon size={12} /> : <></>} {label}
+        {Icon ? <Icon className="w-4 h-4" /> : <></>} {label}
       </Link>
     </li>
   );
@@ -32,9 +32,10 @@ const SidebarLink = ({ link, label, icon: Icon }: SidebarLinkProps) => {
 
 const DashboardSidebar = () => {
   return (
-    <div className="fixed flex flex-col items-center transition-all duration-200 h-full overflow-hidden w-0 md:w-40 bg-base-300">
-      <h1 className="text-xl font-extrabold text-primary">SWIFT</h1>
-      <ul className="menu menu-xs rounded-box w-full text-base-content">
+    <div className="fixed flex flex-col items-center transition-all duration-200 h-full overflow-hidden w-0 md:w-52 bg-base-300">
+      <h1 className="text-4xl font-extrabold text-primary">SWIFT</h1>
+      <h1 className="text-4xl font-extrabold text-primary">LAUNCH</h1>
+      <ul className="menu rounded-box w-full">
         <SidebarLink
           link={"/dashboard"}
           label={"Dashboard"}
@@ -43,7 +44,7 @@ const DashboardSidebar = () => {
         <li className="disabled">
           <a>Apps</a>
         </li>
-        <ul className="menu menu-xs text-base-content p-0">
+        <ul className="menu p-0">
           <li>
             <details open>
               <summary>

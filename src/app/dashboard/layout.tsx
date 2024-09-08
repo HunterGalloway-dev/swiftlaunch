@@ -11,7 +11,7 @@ export default function DashboardLayout({
     <div className="flex w-full min-h-screen h-screen">
       <DashboardSidebar />
       <main
-        className={`flex flex-col w-full h-full ${isSidebarCollapsed} pl-0 md:pl-40`}
+        className={`flex flex-col w-full h-full ${isSidebarCollapsed} pl-0 md:pl-52`}
       >
         <DashboardNavbar />
         {children}

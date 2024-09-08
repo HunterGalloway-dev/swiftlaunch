@@ -68,7 +68,7 @@ const columns: ColumnDef<Payment>[] = [
     accessorKey: "category",
     header: "Category",
     cell: ({ row }) => (
-      <span className="badge badge-sm">{row.getValue("category")}</span>
+      <span className="badge badge-neutral">{row.getValue("category")}</span>
     ),
   },
 
@@ -103,7 +103,7 @@ const columns: ColumnDef<Payment>[] = [
       if (cnt == 0) className = "text-error bg-error";
 
       return (
-        <span className={`badge badge-sm bg-opacity-40 ${className}`}>
+        <span className={`badge bg-opacity-40 ${className}`}>
           {row.getValue("stock")}
         </span>
       );
@@ -118,12 +118,12 @@ const columns: ColumnDef<Payment>[] = [
     cell: ({}) => {
       return (
         <div className="dropdown dropdown-left">
-          <div tabIndex={0} role="button" className="btn btn-xs btn-ghost">
+          <div tabIndex={0} role="button" className="btn btn-ghost">
             <Ellipsis size={16} />
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu menu-xs bg-base-300 z-[1] w-32 shadow"
+            className="dropdown-content menu bg-base-300 z-[1] w-32 shadow"
           >
             <li className="disabled">
               <a>Actions</a>
@@ -195,7 +195,7 @@ const data: Payment[] = [
 const Sales = () => {
   return (
     <div className="p-4">
-      <DataTable columns={columns} data={data} className="table-xs text-xs" />
+      <DataTable columns={columns} data={data} />
     </div>
   );
 };

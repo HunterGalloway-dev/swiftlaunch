@@ -177,14 +177,14 @@ const DataTable = <TData, TValue>({
         </table>
         <div className="flex items-center justify-end space-x-2 py-4">
           <button
-            className="btn  btn-sm btn-outline"
+            className="btn btn-outline"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
             Previous
           </button>
           <button
-            className="btn  btn-sm btn-outline"
+            className="btn btn-outline"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
