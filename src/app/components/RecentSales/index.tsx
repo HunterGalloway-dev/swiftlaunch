@@ -30,7 +30,7 @@ const RecentSales = () => {
     </>
   );
   const date = (val: SupportedColumnType) => (
-    <p>{(val as Date).toDateString()}</p>
+    <p>{(val as Date).toLocaleDateString()}</p>
   );
   const status = (val: SupportedColumnType) => {
     const badgeClass =
