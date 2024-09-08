@@ -1,9 +1,19 @@
 import React from "react";
 
+export type SupportedColumnType = string | Date | number;
+
+const toString = (val: SupportedColumnType) => {
+  if (typeof val.toString == "function") {
+    return val.toString();
+  } else {
+    return val.toLocaleString();
+  }
+};
+
 interface SwiftTableProps {
-  headers: any[];
-  data: any[][];
-  colums: ((val: any) => React.JSX.Element)[] | undefined;
+  headers: SupportedColumnType[];
+  data: SupportedColumnType[][];
+  colums: ((val: SupportedColumnType) => React.JSX.Element)[] | undefined;
 }
 
 const SwiftTable = ({ headers, data, colums }: SwiftTableProps) => {
@@ -13,7 +23,7 @@ const SwiftTable = ({ headers, data, colums }: SwiftTableProps) => {
         <thead className="bg-base-300">
           <tr>
             {headers.map((val, idx) => (
-              <th key={idx}>{val}</th>
+              <th key={idx}>{toString(val)}</th>
             ))}
           </tr>
         </thead>
@@ -21,7 +31,9 @@ const SwiftTable = ({ headers, data, colums }: SwiftTableProps) => {
           {data.map((row, idx) => (
             <tr key={idx}>
               {row.map((data, dIdx) => (
-                <td key={dIdx}>{colums ? colums[dIdx](data) : data}</td>
+                <td key={dIdx}>
+                  {colums ? colums[dIdx](data) : toString(data)}
+                </td>
               ))}
             </tr>
           ))}

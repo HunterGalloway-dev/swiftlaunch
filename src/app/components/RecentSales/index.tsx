@@ -1,5 +1,5 @@
 import React from "react";
-import SwiftTable from "../SwiftTable";
+import SwiftTable, { SupportedColumnType } from "../SwiftTable";
 import Link from "next/link";
 import { DollarSign } from "lucide-react";
 
@@ -13,24 +13,31 @@ const RecentSales = () => {
     ["Necklace", "$24", 1, "Caroline", new Date(Date.now()), "cash"],
   ];
 
-  const bold = (val: string) => <p className="font-extrabold">{val}</p>;
-  const base = (val: string) => <p className="">{val}</p>;
-  const img = (val: string) => (
+  const bold = (val: SupportedColumnType) => (
+    <p className="font-extrabold">{val as string}</p>
+  );
+  const base = (val: SupportedColumnType) => (
+    <p className="">{val as string}</p>
+  );
+  const img = (val: SupportedColumnType) => (
     <>
       <div className="avatar placeholder">
         <div className="ring-primary ring-1 text-neutral-content w-6 rounded-full">
           <span className="text-xs">P</span>
         </div>
       </div>
-      {" " + val}
+      {(" " + val) as string}
     </>
   );
-  const date = (val: Date) => <p>{val.toDateString()}</p>;
-  const status = (val: string) => {
+  const date = (val: SupportedColumnType) => (
+    <p>{(val as Date).toDateString()}</p>
+  );
+  const status = (val: SupportedColumnType) => {
     const badgeClass =
       val === "square"
         ? "badge-primary text-primary"
         : "badge-success text-success";
+    val = val as string;
     return (
       <div
         className={`badge badge-sm badge-primary bg-opacity-20 ${badgeClass}`}
