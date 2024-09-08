@@ -6,7 +6,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, Edit, Ellipsis, Trash } from "lucide-react";
 import React from "react";
 
-export interface Payment {
+interface Payment {
   id: string;
   sku: string;
   name: string;
@@ -18,7 +18,7 @@ export interface Payment {
   createdAt: Date;
 }
 
-export const columns: ColumnDef<Payment>[] = [
+const columns: ColumnDef<Payment>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -115,7 +115,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     id: "actions",
-    cell: ({ row }) => {
+    cell: ({}) => {
       return (
         <div className="dropdown dropdown-left">
           <div tabIndex={0} role="button" className="btn btn-xs btn-ghost">
