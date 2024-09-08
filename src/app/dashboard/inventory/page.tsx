@@ -2,8 +2,8 @@
 
 import DataTable from "@/app/components/DataTable";
 import { convertNumberToCurrency } from "@/app/lib/util";
-import { ColumnDef, VisibilityState } from "@tanstack/react-table";
-import { ArrowUpDown, Edit, Ellipsis, Menu, Trash } from "lucide-react";
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown, Edit, Ellipsis, Trash } from "lucide-react";
 import React from "react";
 
 export interface Payment {
@@ -116,8 +116,6 @@ export const columns: ColumnDef<Payment>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const sale = row.original;
-
       return (
         <div className="dropdown dropdown-left">
           <div tabIndex={0} role="button" className="btn btn-xs btn-ghost">

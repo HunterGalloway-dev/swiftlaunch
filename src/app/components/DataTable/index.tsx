@@ -10,15 +10,7 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table";
-import {
-  CloudUpload,
-  Eye,
-  File,
-  Menu,
-  Plus,
-  Search,
-  Upload,
-} from "lucide-react";
+import { CloudUpload, Eye, Menu, Plus, Search, Upload } from "lucide-react";
 import React from "react";
 
 interface DataTableProps<TData, TValue> {
