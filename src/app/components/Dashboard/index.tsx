@@ -4,6 +4,7 @@ import RevenueChart from "../RevenueChart";
 import ProfitMarginsChart from "../ProfitMarginsChart";
 import StatCard from "../StatCard";
 import RecentSales from "../RecentSales";
+import TopVendors from "../TopVendors";
 
 const Dashboard = () => {
   return (
@@ -50,8 +51,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 mt-4">
+      <div className="grid grid-cols-3 gap-4 mt-4">
         <RecentSales />
+        <TopVendors />
       </div>
     </div>
   );

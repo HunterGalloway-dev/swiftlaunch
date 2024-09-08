@@ -1,39 +1,45 @@
-import { getRecentSales, Sale } from "@/app/db/mockDb";
+"use client";
+
+import { getVendors, Vendor } from "@/app/db/mockDb";
 import { ColumnDef } from "@tanstack/react-table";
 import React from "react";
 import BaseDataTable from "../DataTables/BaseDataTable";
 import Link from "next/link";
+import { convertNumberToCurrency } from "@/app/lib/util";
 
-const sales = getRecentSales();
+const sales = getVendors();
 
-const columns: ColumnDef<Sale>[] = [
+const columns: ColumnDef<Vendor>[] = [
   {
-    accessorKey: "item.name",
+    accessorKey: "name",
     header: "Item Name",
   },
   {
-    accessorKey: "item.price",
+    accessorKey: "shop",
     header: "Price",
   },
   {
-    accessorKey: "quanity",
-    header: "Quanity",
+    accessorKey: "sales",
+    header: "Sales",
   },
   {
-    accessorKey: "item.vendor",
-    header: "Vendor",
+    accessorKey: "earnings",
+    header: "Earnings",
+    cell: ({ row }) => (
+      <p>{convertNumberToCurrency(row.getValue("earnings"))}</p>
+    ),
   },
 ];
 
-const RecentSlaes = () => {
+const TopVendors = () => {
   return (
     <div className="">
       <div className="w-full card bg-base-200 shadow-xl">
         <div className="card-body flex flex-col">
           <div className="flex justify-between">
-            <h2 className="card-title">Recent Sales</h2>
+            <h2 className="card-title">Top Vendors</h2>
             <Link href={"./"} className="btn btn-primary">
-              Sales
+              Vendors
             </Link>
           </div>
           <BaseDataTable columns={columns} data={sales} />
@@ -43,4 +49,4 @@ const RecentSlaes = () => {
   );
 };
 
-export default RecentSlaes;
+export default TopVendors;

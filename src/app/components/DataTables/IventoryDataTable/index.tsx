@@ -19,7 +19,7 @@ interface DataTableProps<TData, TValue> {
   className?: string;
 }
 
-const DataTable = <TData, TValue>({
+const InventoryDataTable = <TData, TValue>({
   columns,
   data,
   className,
@@ -196,4 +196,4 @@ const DataTable = <TData, TValue>({
   );
 };
 
-export default DataTable;
+export default InventoryDataTable;

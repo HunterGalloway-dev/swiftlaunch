@@ -1,12 +1,12 @@
 "use client";
 
-import DataTable from "@/app/components/DataTable";
+import InventoryDataTable from "@/app/components/DataTables/IventoryDataTable";
 import { convertNumberToCurrency } from "@/app/lib/util";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, Edit, Ellipsis, Trash } from "lucide-react";
 import React from "react";
 
-interface Payment {
+interface Item {
   id: string;
   sku: string;
   name: string;
@@ -18,7 +18,54 @@ interface Payment {
   createdAt: Date;
 }
 
-const columns: ColumnDef<Payment>[] = [
+const data: Item[] = [
+  {
+    id: "1",
+    sku: "SKU1",
+    name: "Drawer",
+    category: "Furniture",
+    vendor: "Caroline",
+    cost: 10,
+    price: 30,
+    stock: 9,
+    createdAt: new Date(Date.now()),
+  },
+  {
+    id: "1",
+    sku: "SKU2",
+    name: "Chair",
+    category: "Furniture",
+    vendor: "Caroline",
+    cost: 10,
+    price: 30,
+    stock: 6,
+    createdAt: new Date(Date.now()),
+  },
+  {
+    id: "1",
+    sku: "SKU3",
+    name: "Desk",
+    category: "Furniture",
+    vendor: "Donna",
+    cost: 10,
+    price: 30,
+    stock: 5,
+    createdAt: new Date(Date.now()),
+  },
+  {
+    id: "1",
+    sku: "SKU4",
+    name: "Necklace",
+    category: "Jewelery",
+    vendor: "Ronna",
+    cost: 10,
+    price: 30,
+    stock: 0,
+    createdAt: new Date(Date.now()),
+  },
+];
+
+const columns: ColumnDef<Item>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -145,57 +192,10 @@ const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-const data: Payment[] = [
-  {
-    id: "1",
-    sku: "SKU1",
-    name: "Drawer",
-    category: "Furniture",
-    vendor: "Caroline",
-    cost: 10,
-    price: 30,
-    stock: 9,
-    createdAt: new Date(Date.now()),
-  },
-  {
-    id: "1",
-    sku: "SKU2",
-    name: "Chair",
-    category: "Furniture",
-    vendor: "Caroline",
-    cost: 10,
-    price: 30,
-    stock: 6,
-    createdAt: new Date(Date.now()),
-  },
-  {
-    id: "1",
-    sku: "SKU3",
-    name: "Desk",
-    category: "Furniture",
-    vendor: "Donna",
-    cost: 10,
-    price: 30,
-    stock: 5,
-    createdAt: new Date(Date.now()),
-  },
-  {
-    id: "1",
-    sku: "SKU4",
-    name: "Necklace",
-    category: "Jewelery",
-    vendor: "Ronna",
-    cost: 10,
-    price: 30,
-    stock: 0,
-    createdAt: new Date(Date.now()),
-  },
-];
-
 const Sales = () => {
   return (
-    <div className="p-4">
-      <DataTable columns={columns} data={data} />
+    <div className="p-4 overflow-auto">
+      <InventoryDataTable columns={columns} data={data} />
     </div>
   );
 };
