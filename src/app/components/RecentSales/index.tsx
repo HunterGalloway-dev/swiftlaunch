@@ -7,10 +7,10 @@ const RecentSales = () => {
   const headers = ["Product", "Price", "Quanity", "Vendor", "Date", "Type"];
   const data = [
     ["Shoe", "$51", 3, "Caroline", new Date(Date.now()), "cash"],
-    ["T-Shirt", "$51", 1, "Caroline", new Date(Date.now()), "cash"],
-    ["T-Shirt", "$51", 5, "Caroline", new Date(Date.now()), "cash"],
-    ["Urn", "$51", 2, "Caroline", new Date(Date.now()), "cash"],
-    ["Shoe", "$51", 10, "Caroline", new Date(Date.now()), "cash"],
+    ["T-Shirt", "$23", 1, "Caroline", new Date(Date.now()), "cash"],
+    ["T-Shirt", "$21", 5, "Caroline", new Date(Date.now()), "cash"],
+    ["Urn", "$72", 2, "Caroline", new Date(Date.now()), "cash"],
+    ["Necklace", "$24", 1, "Caroline", new Date(Date.now()), "cash"],
   ];
 
   const bold = (val: string) => <p className="font-extrabold">{val}</p>;
