@@ -3,7 +3,7 @@
 import DataTable from "@/app/components/DataTable";
 import { convertNumberToCurrency } from "@/app/lib/util";
 import { ColumnDef, VisibilityState } from "@tanstack/react-table";
-import { ArrowUpDown, Menu } from "lucide-react";
+import { ArrowUpDown, Edit, Ellipsis, Menu, Trash } from "lucide-react";
 import React from "react";
 
 export interface Payment {
@@ -67,6 +67,9 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "category",
     header: "Category",
+    cell: ({ row }) => (
+      <span className="badge badge-sm">{row.getValue("category")}</span>
+    ),
   },
 
   {
@@ -89,6 +92,22 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "stock",
     header: "Stock",
+    cell: ({ row }) => {
+      const cnt = parseInt(row.getValue("stock"));
+
+      let className = "text-success bg-success";
+      if (cnt <= 5) {
+        className = "text-warning bg-warning";
+      }
+
+      if (cnt == 0) className = "text-error bg-error";
+
+      return (
+        <span className={`badge badge-sm bg-opacity-40 ${className}`}>
+          {row.getValue("stock")}
+        </span>
+      );
+    },
   },
   {
     accessorKey: "vendor",
@@ -102,17 +121,24 @@ export const columns: ColumnDef<Payment>[] = [
       return (
         <div className="dropdown dropdown-left">
           <div tabIndex={0} role="button" className="btn btn-xs btn-ghost">
-            <Menu size={16} />
+            <Ellipsis size={16} />
           </div>
           <ul
             tabIndex={0}
             className="dropdown-content menu menu-xs bg-base-300 z-[1] w-32 shadow"
           >
+            <li className="disabled">
+              <a>Actions</a>
+            </li>
             <li className="">
-              <a key={"e"}>Item 1</a>
+              <a>
+                <Edit className="w-4 h-4" /> Edit
+              </a>
             </li>
             <li>
-              <a key={"2"}>Item 2</a>
+              <a className="text-error">
+                <Trash className="w-4 h-4" /> Delete
+              </a>
             </li>
           </ul>
         </div>
@@ -130,7 +156,7 @@ const data: Payment[] = [
     vendor: "Caroline",
     cost: 10,
     price: 30,
-    stock: 45,
+    stock: 9,
     createdAt: new Date(Date.now()),
   },
   {
@@ -141,7 +167,7 @@ const data: Payment[] = [
     vendor: "Caroline",
     cost: 10,
     price: 30,
-    stock: 45,
+    stock: 6,
     createdAt: new Date(Date.now()),
   },
   {
@@ -152,7 +178,7 @@ const data: Payment[] = [
     vendor: "Donna",
     cost: 10,
     price: 30,
-    stock: 45,
+    stock: 5,
     createdAt: new Date(Date.now()),
   },
   {
@@ -163,7 +189,7 @@ const data: Payment[] = [
     vendor: "Ronna",
     cost: 10,
     price: 30,
-    stock: 45,
+    stock: 0,
     createdAt: new Date(Date.now()),
   },
 ];

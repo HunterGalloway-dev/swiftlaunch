@@ -16,7 +16,7 @@ import Link from "next/link";
 interface SidebarLinkProps {
   link: string;
   label: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
 }
 
 const SidebarLink = ({ link, label, icon: Icon }: SidebarLinkProps) => {
@@ -24,7 +24,7 @@ const SidebarLink = ({ link, label, icon: Icon }: SidebarLinkProps) => {
     <li>
       <Link href={link}>
         {" "}
-        <Icon size={12} /> {label}
+        {Icon ? <Icon size={12} /> : <></>} {label}
       </Link>
     </li>
   );
@@ -43,7 +43,22 @@ const DashboardSidebar = () => {
         <li className="disabled">
           <a>Apps</a>
         </li>
-        <SidebarLink link={"/dashboard"} label={"Store"} icon={Store} />
+        <ul className="menu menu-xs text-base-content p-0">
+          <li>
+            <details open>
+              <summary>
+                <Store size={12} /> Store
+              </summary>
+              <ul>
+                <SidebarLink
+                  link={"/dashboard/inventory"}
+                  label={"Inventory"}
+                />
+              </ul>
+            </details>
+          </li>
+        </ul>
+
         <SidebarLink link={"/dashboard"} label={"Chat"} icon={MessageSquare} />
         <SidebarLink link={"/dashboard"} label={"AI Bot"} icon={Bot} />
         <SidebarLink link={"/dashboard"} label={"Files"} icon={Folder} />
