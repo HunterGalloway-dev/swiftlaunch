@@ -27,7 +27,7 @@ const BaseDataTable = <TData, TValue>({
   });
 
   return (
-    <div className="rounded-md border-solid">
+    <div className="rounded-md border-solid overflow-auto">
       <table className={`table ${className} bg-base-200`}>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
